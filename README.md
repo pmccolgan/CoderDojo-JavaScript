@@ -12,7 +12,7 @@ Resources for teaching JavaScript at CoderDojo
   * Would like to make a Mr Driller style game
 
 ##Week 2
-  * Drawing recap with more drawing (lines, circles)
+  * Drawing recap with more drawing (lines, circles) and understanding coordinates
   * Drawing text
   * Drawing images
   * Keyboard input
