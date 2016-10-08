@@ -1,6 +1,6 @@
-.centerBox{
-	width: 200px; 
-	height:200px; 
+.centerDiv400{
+	width: 400px; 
+	height:400px; 
 	margin: auto;
-	border: 2px solid black;
+	border: 2px solid red;
 }
