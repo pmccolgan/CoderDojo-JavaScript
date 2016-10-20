@@ -41,11 +41,9 @@ function handleInput(e)
 			break;
 		case 39: // right arrow
 		case 68: // D
-			BoxPositionX = BoxPositionX + 1;
 			break;
 		case 40: // down arrow
 		case 83: // S
-			BoxPositionY = BoxPositionY + 1;
 			break;
 		default: 
 			console.info("Unhandled key: " + code);

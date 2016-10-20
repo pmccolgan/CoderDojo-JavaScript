@@ -78,5 +78,45 @@ var DrawingCanvas;
 var DrawingContext;
 ```
 
+We've changed handle input so on a key press we move our box and re-draw it:
+
+```
+function handleInput(e)
+{
+	var code = e.keyCode;
+
+	switch (code) 
+	{
+		case 37: // left arrow
+		case 65: // A
+			BoxPositionX = BoxPositionX - 1;
+			break;
+		case 38: // up arrow
+		case 87: // W
+			BoxPositionY = BoxPositionY - 1;
+			break;
+		case 39: // right arrow
+		case 68: // D
+			break;
+		case 40: // down arrow
+		case 83: // S
+			break;
+		default: 
+			console.info("Unhandled key: " + code);
+			break;;
+	}
+	
+	DrawingContext.fillRect(BoxPositionX,	// left position
+					 		BoxPositionY,	// top position
+					 		20,	// width
+					 		20);	// height
+}
+```
+
+Hmmmmm what do we think of that?  Can you finish the code for right and down?
+
+How can we make it look like the box is moving rather than painting?
+
+
 
 
