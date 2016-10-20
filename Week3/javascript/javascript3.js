@@ -32,15 +32,19 @@ function handleInput(e)
 	switch (code) 
 	{
 		case 37: // left arrow
+		case 65: // A
 			BoxPositionX = BoxPositionX - 1;
 			break;
 		case 38: // up arrow
+		case 87: // W
 			BoxPositionY = BoxPositionY - 1;
 			break;
 		case 39: // right arrow
+		case 68: // D
 			BoxPositionX = BoxPositionX + 1;
 			break;
 		case 40: // down arrow
+		case 83: // S
 			BoxPositionY = BoxPositionY + 1;
 			break;
 		default: 
