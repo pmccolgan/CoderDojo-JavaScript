@@ -66,4 +66,17 @@ function handleInput(e)
 
 Can you update the function to handle either WASD keys or the arrows?
 
+Lets use these keys to move our square, open canvas3 & javascript3
+
+Ok so we're drawing the square at 190, 190 we want to move it so we need to start storing the position in a variable, we also move our canvas and context because we need to call them elsewhere:
+
+```
+var BoxPositionX = 190;
+var BoxPositionY = 190;
+
+var DrawingCanvas;
+var DrawingContext;
+```
+
+
 
