@@ -42,4 +42,28 @@ We need to tell it to run that function though so add the following to init:
 	window.addEventListener('keydown', handleInput, false);
 ```
 
-So what's printed?  Hey wait they're numbers!  Yeah so keys appear as number...
+So what's printed?  Hey wait they're numbers!  Yeah so keys appear as number...  Ok so what we can do is use a 'switch case' to handle special numbers:
+
+```
+function handleInput(e)
+{
+		var code = e.keyCode;
+
+		switch (code) 
+		{
+			case 13:
+				console.info("Hey you pressed the Enter key?!");
+				break;
+			case 32:
+				console.info("Oh woah you hit the space bar!");
+				break;
+			default: 
+				console.info("Unhandled key: " + code);
+				break;;
+		}
+}
+```
+
+Can you update the function to handle either WASD keys or the arrows?
+
+

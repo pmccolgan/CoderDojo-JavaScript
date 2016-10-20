@@ -19,7 +19,7 @@ Resources for teaching JavaScript at CoderDojo
 ##Week 3
   * Comments
   * Printing to console
-  * Keyboard 
+  * Keyboard
   * Game Loop
   * Clearing the canvas Game Loop
   * Collision detection
