@@ -15,9 +15,14 @@ Resources for teaching JavaScript at CoderDojo
   * Drawing recap with more drawing (lines, circles) and understanding coordinates
   * Drawing text
   * Drawing images
-  * Keyboard input
+
+##Week 3
+  * Comments
+  * Printing to console
+  * Keyboard 
+  * Game Loop
   * Clearing the canvas Game Loop
-  * Mouse input
+  * Collision detection
   
 ##Todo
   * Physics

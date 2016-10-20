@@ -13,3 +13,33 @@ Look at the JavaScript file and you'll notice some '//'s which indicate comments
 	context.fillStyle = "#0000FF";
 ```
 
+We're going to need some output to look at values, so lets see how to print messages to the javascript console.
+
+Any of these will produce text, copy them in, open the console and reload the page:
+
+```
+console.error("Error!"); //gives you the red errormessage
+console.warn("Warning!"); //gives the warn message with the exclamation mark in front of it
+console.info("Information..."); //gives an info message with an 'i' in front of the message
+console.log("Log...erm..."); //gives the default message
+```
+
+Keyboard input, switch to Canvas2 & javascript2.  So we've added a function that will handle keyboard input and print the key pressed:
+
+```
+// function to handle keyboard input, e is an object containing information on what key is pressed
+function handleInput(e)
+{
+	console.info("A key was pressed: " + e.keyCode);
+}
+```
+
+We need to tell it to run that function though so add the following to init:
+
+```
+	// tell the webpage to call out keyboard input function when there is keyboard input
+	// we're adding an event listener to the event 'keydown' and when it happens call our function 'handleinput'
+	window.addEventListener('keydown', handleInput, false);
+```
+
+So what's printed?  Hey wait they're numbers!  Yeah so keys appear as number...
