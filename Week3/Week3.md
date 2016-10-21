@@ -117,6 +117,34 @@ Hmmmmm what do we think of that?  Can you finish the code for right and down?
 
 How can we make it look like the box is moving rather than painting?
 
+Gravity time, we can call functions on load and on key presses, we need something being called regularly for a gameloop.
+
+In init add:
+
+```
+	// set timer to call function every  100 milliseconds or 10 times a second
+	setTimeout("update()", 100);
+```
+
+ Define the function that is called but remember to call it again!
+
+```
+	function update()
+	{
+		// set timer to call function every  100 milliseconds or 10 times a second
+		setTimeout("update()", 100);
+
+		console.info("Update called...");
+	}
+```
+
+
+game loop
+
+gravity
+
+basic collision detection
 
 
 
+Raw github show hosted file
