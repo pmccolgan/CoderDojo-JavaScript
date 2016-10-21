@@ -257,5 +257,4 @@ Extra stuff:
   * can we make the blue box jump?
   * draw a picture instead of a blue box
 
-There have been a few questions about whether what we're trying to do could be hosted on the internet:
-[here!](https://rawgit.com/pmccolgan/CoderDojo-JavaScript/blob/master/Week3/hosted_canvas.html)
+There have been a few questions about whether what we're trying to do could be hosted on the internet: [here!](https://rawgit.com/pmccolgan/CoderDojo-JavaScript/master/Week3/hosted_canvas.html)
