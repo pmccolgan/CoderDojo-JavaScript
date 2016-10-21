@@ -251,10 +251,10 @@ function moveBlueBox(x_offset, y_offset)
 
 So can we stop it going off the left and right sides?
 
-Raw github show hosted file
-
 Extra stuff:
   * change gravity
   * change move speed
   * can we make the blue box jump?
   * draw a picture instead of a blue box
+
+ There have been a few questions about whether what we're trying to do could be hosted on the internet: [it can! :)](https://rawgit.com/pmccolgan/CoderDojo-JavaScript/blob/master/Week3/hosted_canvas.html)
