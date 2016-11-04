@@ -1,0 +1,6 @@
+.centerDiv512{
+	width: 512px; 
+	height: 512px; 
+	margin: auto;
+	border: 2px solid red;
+}
