@@ -71,6 +71,8 @@ function clearArea(context, minX, minY, width, height)
 
 function drawRectangleWithColour(context, minX, minY, width, height, colour)
 {
+	console.log("drawRectangleWithColour: " + minX + " " + minY + " " + width + " " + height + " " + colour)
+
 	setFillColour(context, colour);
 	
 	drawRectangle(context, minX, minY, width, height);

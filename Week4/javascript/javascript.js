@@ -1,71 +1,83 @@
-var BoxPositionX = 190;
-var BoxPositionY = 190;
+var CANVAS_ID = "ourCanvas"
+var CONTEXT = "2d"
+var UPDATE_INTERVAL_MILLISECONDS = 40	// call update every 40 milliseconds, around 25 times a second
+var CHARACTER_START_X = 100
+var CHARACTER_START_Y = 100
+var CHARACTER_DIMENSION = 32
 
-var DrawingCanvas;
-var DrawingContext;
+var renderer
+var character
+
 
 function init()
 {
-	DrawingCanvas = document.getElementById("ourCanvas");
-	DrawingContext = DrawingCanvas.getContext("2d");
+	console.log("init")
 
-	// set the fill colour, here its blue
-	DrawingContext.fillStyle = "#0000FF";
-
-	// draw a filled rectangle
-	DrawingContext.fillRect(BoxPositionX,	// left position
-					 		BoxPositionY,	// top position
-					 		20,	// width
-					 		20);	// height
+	renderer = new Render(document, CANVAS_ID, CONTEXT);
 	
+	character = new Character(CHARACTER_START_X, CHARACTER_START_X, CHARACTER_DIMENSION, CHARACTER_DIMENSION);
+
 	// tell the webpage to call out keyboard input function when there is keyboard input
 	// we're adding an event listener to the event 'keydown' and when it happens call our function 'handleinput'
-	window.addEventListener('keydown', handleInput, false);
+	window.addEventListener('keydown', handleInput, false)
+	
+	requestUpdateTimer();
 }
 	
 
 // function to handle keyboard input, e is an object containing information on what key is pressed
 function handleInput(e)
 {
-	var code = e.keyCode;
-
-	// set the fill colour, here its blue
-	DrawingContext.fillStyle = "#FFFFFF";
-
-	// draw a filled rectangle
-	DrawingContext.fillRect(BoxPositionX,	// left position
-					 		BoxPositionY,	// top position
-					 		20,	// width
-					 		20);	// height
+	var code = e.keyCode
 
 	switch (code) 
 	{
 		case 37: // left arrow
 		case 65: // A
-			BoxPositionX = BoxPositionX - 1;
-			break;
+			break
 		case 38: // up arrow
 		case 87: // W
-			BoxPositionY = BoxPositionY - 1;
-			break;
+			break
 		case 39: // right arrow
 		case 68: // D
-			BoxPositionX = BoxPositionX + 1;
-			break;
+			break
 		case 40: // down arrow
 		case 83: // S
-			BoxPositionY = BoxPositionY + 1;
-			break;
+			break
 		default: 
-			console.info("Unhandled key: " + code);
-			break;;
+			console.info("Unhandled key: " + code)
+			break
 	}
+}
 
-	// set the fill colour, here its blue
-	DrawingContext.fillStyle = "#0000FF";
+
+function renderCharacter(render_character)
+{
+	// console.log("render character")
 	
-	DrawingContext.fillRect(BoxPositionX,	// left position
-					 		BoxPositionY,	// top position
-					 		20,	// width
-					 		20);	// height
+	var position = render_character.getPosition()
+	var dimensions = render_character.getDimensions()
+
+	renderer.drawRectangle(position.x, 
+						   position.y, 
+						   dimensions.x,
+						   dimensions.y, 
+						   COLOUR.RED)
+}
+
+
+function requestUpdateTimer()
+{
+	setTimeout("update()", UPDATE_INTERVAL_MILLISECONDS)
+}
+
+
+function update()
+{
+	// console.log("update")
+
+	renderCharacter(character)
+
+	// have to set trigger for update to be called again
+	requestUpdateTimer()
 }
