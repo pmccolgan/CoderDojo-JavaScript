@@ -71,8 +71,6 @@ function clearArea(context, minX, minY, width, height)
 
 function drawRectangleWithColour(context, minX, minY, width, height, colour)
 {
-	console.log("drawRectangleWithColour: " + minX + " " + minY + " " + width + " " + height + " " + colour)
-
 	setFillColour(context, colour);
 	
 	drawRectangle(context, minX, minY, width, height);
@@ -210,6 +208,7 @@ function drawRectangleOutline(context, minX, minY, width, height)
 
 function Render(document, canvasName, contextName)
 {
+	var _canvas = getCanvas(document, canvasName);
 	var _context = getContextFromDocument(document, canvasName, contextName);
 	
 	this.drawRectangle = function (minX, minY, width, height, colour)
@@ -242,9 +241,19 @@ function Render(document, canvasName, contextName)
 		clearArea(_context, minX, minY, width, height);
 	}
 	
+	this.clear = function ()
+	{
+		clearArea(_context, 0, 0, _canvas.width, _canvas.height);
+	}
+	
 	this.setLineWidth = function (width)
 	{
 		setLineWidth(_context, width);
+	}
+	
+	this.getDimensions = function ()
+	{
+		return new Vector2f(_canvas.width, _canvas.height)
 	}
 }
 
