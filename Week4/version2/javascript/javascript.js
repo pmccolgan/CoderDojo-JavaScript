@@ -20,6 +20,12 @@ var jump // flag to jump
 var renderer	// handle all drawing
 var character 	// handle all character... stuff
 
+// create a collection of block positions
+var blockData = [
+        {"x": 200, "y": 200, "width": 50, "height":20},
+        {"x": 300, "y": 300, "width": 100, "height":100}
+    ];
+
 // init function called when the web page has loaded
 function init()
 {
@@ -124,6 +130,9 @@ function update()
 	// clear the entire canvas, remove anything previously drawn
 	renderer.clear()
 
+	// draw all our blocks
+	drawBlocks()
+
 	// update the character for the amount of time that has passed
 	updateCharacter(character, timeSinceLastUpdateSeconds)
 
@@ -209,4 +218,16 @@ function updateCharacter(update_character, update_time)
 					   dimensions.getX(),
 					   dimensions.getY(), 
 					   imageFile)
+}
+
+function drawBlocks()
+{
+	for (var i = 0; i < blockData.length; i++)
+	{
+		renderer.drawRectangle(blockData[i].x, 
+							   blockData[i].y, 
+							   blockData[i].width,
+							   blockData[i].height, 
+							   COLOUR.GREEN)
+	}
 }
