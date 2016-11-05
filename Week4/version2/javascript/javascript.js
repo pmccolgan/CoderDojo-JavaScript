@@ -22,8 +22,9 @@ var character 	// handle all character... stuff
 
 // create a collection of block positions
 var blockData = [
-        {"x": 200, "y": 200, "width": 50, "height":20},
-        {"x": 300, "y": 300, "width": 100, "height":100}
+        {"name": "1", "x": 200, "y": 480, "width": 50, "height":64},
+        {"name": "2", "x": 250, "y": 448, "width": 50, "height":64},
+        {"name": "3", "x": 300, "y": 416, "width": 50, "height":64}
     ];
 
 // init function called when the web page has loaded
@@ -172,7 +173,7 @@ function updateCharacter(update_character, update_time)
 
 	var velocity = update_character.getVelocity()
 
-	if ((velocity.getY() == 0) && (jump == true))
+	if ((update_character.getState() == CHARACTER_STATE.STAND) && (jump == true))
 	{
 		verticalAcceleration = JUMP_ACCELERATION * update_time
 	}
@@ -212,6 +213,45 @@ function updateCharacter(update_character, update_time)
 		update_character.setVelocity(update_character.getVelocity().getX(), 0)
 	}
 
+	// stop the character falling through blocks
+	for (var i = 0; i < blockData.length; i++)
+	{
+		// does the character and the block overlap
+		var overlapX = false
+		var overlapY = false
+
+		var block = blockData[i]
+
+		var characterLeft = position.getX()
+		var characterRight = characterLeft + dimensions.getX()
+		var blockLeft = block.x
+		var blockRight = blockLeft + block.width
+
+		if (((characterLeft > blockLeft) && (characterLeft < blockRight)) ||
+			((characterRight > blockLeft) && (characterRight < blockRight)))
+		{
+			overlapX = true
+		}
+
+		var characterTop = position.getY()
+		var characterBottom = characterTop + dimensions.getY()
+		var blockTop = block.y
+		var blockBottom = blockTop + block.height
+
+		if (((characterTop > blockTop) && (characterTop < blockBottom)) ||
+			((characterBottom > blockTop) && (characterBottom < blockBottom)))
+		{
+			overlapY = true
+		}
+
+		if (overlapX && overlapY)
+		{
+			console.log("Block: " + block.name + " X: " + overlapX + "Y: " + overlapY)
+			position.setY(blockTop - dimensions.getY())
+			update_character.setVelocity(update_character.getVelocity().getX(), 0)
+		}
+	}
+
 	// draw character
 	renderer.drawImage(position.getX(), 
 					   position.getY(), 
@@ -220,8 +260,10 @@ function updateCharacter(update_character, update_time)
 					   imageFile)
 }
 
+// draw all our blocks
 function drawBlocks()
 {
+	// go though our list block by block and draw
 	for (var i = 0; i < blockData.length; i++)
 	{
 		renderer.drawRectangle(blockData[i].x, 

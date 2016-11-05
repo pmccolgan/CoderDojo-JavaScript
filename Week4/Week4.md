@@ -15,3 +15,13 @@ Play with speed velocity and gravity
 Add a second character?
 
 Go to version 2
+
+Drawing character as an image
+
+Adding blocks, drawing blocks
+
+Add some blocks
+
+Really rough collision detection and character states
+
+Play with it

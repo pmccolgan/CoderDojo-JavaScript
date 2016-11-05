@@ -151,7 +151,7 @@ function drawImage(context, x, y, width, height, image_file)
 
 	image.onload = function()
 	{
-    	context.drawImage(image, x, y);
+    	context.drawImage(image, 0, 0, width, height, x, y, width, height);
 	}
 }
 
