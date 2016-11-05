@@ -142,16 +142,19 @@ function updateCharacter(update_character, update_time)
 	var dimensions = update_character.getDimensions()
 
 	// calculate how much the character should move left and right
+	// pick which image to draw
 	var moveSpeed = 0
-
+	var imageFile = './images/SuperPaddyO.png'
 	if (moveRight == true)
 	{
 		moveSpeed += MOVE_SPEED
+		imageFile = './images/SuperPaddyO_right_1.png'
 	}
 
 	if (moveLeft == true)
 	{
 		moveSpeed -= MOVE_SPEED
+		imageFile = './images/SuperPaddyO_left_1.png'
 	}
 
 	// calculate how much the character should move up or down
@@ -201,9 +204,9 @@ function updateCharacter(update_character, update_time)
 	}
 
 	// draw character
-	renderer.drawRectangle(position.getX(), 
-						   position.getY(), 
-						   dimensions.getX(),
-						   dimensions.getY(), 
-						   COLOUR.RED)
+	renderer.drawImage(position.getX(), 
+					   position.getY(), 
+					   dimensions.getX(),
+					   dimensions.getY(), 
+					   imageFile)
 }

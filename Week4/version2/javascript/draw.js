@@ -144,6 +144,18 @@ function drawCircle(context, centerX, centerY, radius)
 }
 
 
+function drawImage(context, x, y, width, height, image_file)
+{
+	var image = new Image();
+	image.src = image_file;
+
+	image.onload = function()
+	{
+    	context.drawImage(image, x, y);
+	}
+}
+
+
 function drawGridWithColour(context, grid, colour)
 {
 	setStrokeColour(context, colour);
@@ -254,6 +266,11 @@ function Render(document, canvasName, contextName)
 	this.getDimensions = function ()
 	{
 		return new Vector2f(_canvas.width, _canvas.height)
+	}
+
+	this.drawImage = function (x, y, width, height, image_file)
+	{
+		drawImage(_context, x, y, width, height, image_file)
 	}
 }
 
